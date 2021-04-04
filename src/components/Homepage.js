@@ -2,7 +2,6 @@ import React, {useState, useEffect, useRef, useCallback} from 'react';
 import Article from './Article';
 import Loader from './Loader';
 import {getArticles} from '../util/getArticles';
-import Search from './Search';
 import '../scss/search-box.scss';
 
 const HomePage = () => {
