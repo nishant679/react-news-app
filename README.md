@@ -1,6 +1,6 @@
 ## News Browsing App
 
-This app is developed using
+This app is developed using React.js
 
 ## steps view this App in your local system
 
