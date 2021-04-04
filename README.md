@@ -2,8 +2,7 @@
 
 This app is developed using React.js
 
-![Alt text](https://iili.io/qg0m7e.png "Desktop App")
-![Alt text](https://iili.io/qg0ymb.png "Desktop App")
+![Alt text](https://iili.io/qg172t.png "Desktop App")
 
 ## steps view this App in your local system
 
