@@ -1,0 +1,72 @@
+@import './_mixins.scss';
+
+.article-container{
+
+    .article{
+        // border: 1px solid red;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .article-data{
+            width: 60%;
+            margin: 1rem auto;
+            border: 1px solid rgb(211, 211, 211);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+
+            .author{
+                font-size: 0.8rem;
+                // padding: 1rem;
+                font-weight: 200;
+                color: rgb(44, 44, 44);
+            }
+
+            .content{
+                font-size: 0.8rem;
+                font-weight: 300;
+                color: rgb(71, 71, 71);
+            }
+
+            .data{
+                width: 70%;
+            }
+
+            .image-container{
+                width: 28%;
+                // border: 1px solid black;
+                object-fit: scale-down;
+
+                img{
+                    max-width: 100%;
+                }
+            }
+
+            .source{
+                color: brown;
+                font-size: 0.9rem;
+                font-weight: 800;
+
+                ::after{
+                    content: "  a";
+                }
+            }
+            .date{
+                color: cadetblue;
+                font-size: 0.9rem;
+                font-weight: 900;
+            }
+
+            @include media-down(sm){
+                flex-direction: row;
+            }
+        }
+
+        .article-data:hover{
+            box-shadow: 6px 6px 6px -6px rgb(142, 141, 141);
+            border: 1px solid rgb(128, 128, 128);
+        }
+    }
+}
