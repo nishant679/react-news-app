@@ -1,31 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import FetchNewsAPI from './FetchNewsAPI';
+import  {useState, useEffect} from 'react';
 import '../scss/Article.scss';
-import {getArticles} from '../util/getArticles';
 
 
 const Article = (props) =>{
-    // let [articles, setArticle] = useState([]);
-    // // const articles = props.data || {}
-
-    // useEffect(async()=> {
-    //     const Response = await FetchNewsAPI();
-    //     setArticle(articles = Response.articles);
-    //     console.log("Response is ", Response)
-    // }, []);
-
-
-    // console.log(articles);
-    // getArticles();
 
     const articles = props.articles || [];
 
     return(
         <div className="article-container">
-            {/* <h2>News APP</h2> */}
             <div className="article">
                 {
-                    articles.map(article => {
+                    articles.map((article, i) => {
                         const data = article || {},
                             title = data.title || "",
                             imageURL = data.urlToImage || "",
@@ -35,7 +20,7 @@ const Article = (props) =>{
                             source = data.source || {},
                             sourceName = source.name || "";
                         return(
-                            <div  className="article-data">
+                            <div  className="article-data" key={i}>
                                 <div className="data">
                                     <h4>{title}</h4>
                                     <p className="content">{content}</p>

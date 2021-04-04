@@ -32,6 +32,10 @@
 
             .data{
                 width: 70%;
+
+                @include media-down (sm){
+                    width: 100%;
+                }
             }
 
             .image-container{
@@ -41,6 +45,10 @@
 
                 img{
                     max-width: 100%;
+                }
+                @include media-down(sm){
+                    width: 100%;
+                    margin-top: 2rem;
                 }
             }
 
@@ -60,7 +68,9 @@
             }
 
             @include media-down(sm){
-                flex-direction: row;
+                flex-direction: column;
+                // border: 2px solid red;
+                width: 80%;
             }
         }
 

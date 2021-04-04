@@ -1,1 +1,2 @@
-export const NEWS_API_KEY = "ae6ad755efa541c1b4231038e602741c";
+export const API_KEY = "d810c01701924ea6a30e85b2e9ae0c50";
+export const SEARCH_ENDPOINT = "https://newsapi.org/v2/everything";

@@ -1,9 +1,14 @@
 import React from 'react';
 
 
-const Loader = () =>{
-    return(
-        <div> Loading ...</div>
+
+export const Loader = () => {
+    return (
+        <React.Fragment>
+            <div className='loader'>
+                Loading ...
+            </div>
+        </React.Fragment>
     );
 };
 

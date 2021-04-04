@@ -1,0 +1,27 @@
+@import './_mixins.scss';
+
+.search-container{
+    width : 100%;
+    position: fixed;
+    background-color: black;
+
+    .search{
+        width: 20%;
+        margin: 1rem auto;
+        // border : 1px solid red;
+
+        @include media-down(sm){
+            width: 90%;
+        }
+    }
+    input{
+        width: 70%;
+        height: 2rem;
+    }
+    button{
+        background-color: rgb(216, 214, 214);
+        padding: 11px 10px;
+        border: none;
+        width: 26%;
+    }
+}

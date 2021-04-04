@@ -1,23 +1,13 @@
 import axios from 'axios';
-// import { API, API_KEY, SEARCH_ENDPOINT, DEFAULT_QUERY } from '../config';
+import { API_KEY, SEARCH_ENDPOINT} from '../config';
 
-/**
- * Combining the API with end point
- */
-// const articlesApi = `${API}/${SEARCH_ENDPOINT}`;
-const newsApi = "https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&page=1&apiKey=ae6ad755efa541c1b4231038e602741c"
-const API_KEY = 'ae6ad755efa541c1b4231038e602741c';
 
-const api_endpoint = "https://newsapi.org/v2/everything";
-/**
- * Function to fetch news articles
- */
-export const getArticles = (page) => {
+export const getArticles = (page, topic) => {
     console.log("page count", page);
 	return axios
-		.get(api_endpoint,{
+		.get(SEARCH_ENDPOINT,{
             params : {
-                q : "bitcoin",
+                q : topic,
                 sorrBy : "publishedAt",
                 page : page,
                 apiKey : API_KEY
@@ -33,10 +23,6 @@ export const getArticles = (page) => {
 		});
 };
 
-/**
- * Filtering response data to
- * only return articles & hits
- */
 const getRes = (res) => {
 	return {
 		articles: res.data.articles,

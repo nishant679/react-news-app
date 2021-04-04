@@ -1,10 +1,9 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
-import FetchNewsAPI from './FetchNewsAPI';
 import Article from './Article';
 import Loader from './Loader';
-import ShowError from './ShowError';
-import ArticleCard from './ArticleCard';
 import {getArticles} from '../util/getArticles';
+import Search from './Search';
+import '../scss/search-box.scss';
 
 const HomePage = () => {
     // storing Article in a state
@@ -13,6 +12,8 @@ const HomePage = () => {
     const [hits, setHits] = useState(0);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [topic, setTopic] = useState("India");
+    console.log("Search topic is ", topic);
 
     // utility function to paginate 
     const observer = useRef();
@@ -34,13 +35,14 @@ const HomePage = () => {
         initArticles();
     }, []);
 
+
     //utility function to load articles
     const initArticles = () => {
         // set loading true before loading the articles
         setError(false);
         setLoading(true);
 
-        getArticles( page)
+        getArticles( page, topic )
             .then((data) => {
                 if(!data.error && data !== undefined){
                     //set articles data if no error 
@@ -61,6 +63,33 @@ const HomePage = () => {
                 setError(true);
                 setLoading(false);
             })
+    };
+
+    //Search form
+    const SearchForm = () => {
+        let [searchTopic, updateSearchTopic] = useState("");
+
+        const updateData = (e) => {
+            updateSearchTopic(e.target.value);
+        }
+        const updateTopic = () =>{
+            setTopic(searchTopic);
+            // initArticles();
+            // setArticles([]);
+            console.log("updated Search topic")
+        }
+        return(
+            <div className="search-container">
+                <div className="search">
+                    <input 
+                        type="text" 
+                        value={searchTopic}
+                        onChange = {updateData}
+                    ></input>
+                    <button onClick={updateTopic}>Search</button>
+                </div>
+            </div>
+        )
     };
 
     //Rendering articles card
@@ -130,6 +159,7 @@ const HomePage = () => {
     return(
         <React.Fragment>
             <div className="container">
+                <SearchForm />
                 {showArticles()}
                 {ShowLoading()}
                 {ShowError()}
