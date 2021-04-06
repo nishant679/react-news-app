@@ -158,7 +158,6 @@ const HomePage = () => {
     return(
         <React.Fragment>
             <div className="container">
-//                 <SearchForm />
                 {showArticles()}
                 {ShowLoading()}
                 {ShowError()}
